@@ -4,20 +4,23 @@ const jwt=require("jsonwebtoken");
 exports.obtener = async (req, res) => {
   try {
     const genero = await Genero.find();
+   
     res.status(200).json(genero);
   } catch (error) {
-    res.status(500).json(error)
+    res.status(500).json({msj:"Error al listar los documentos de genero,  "+error})
   }
 
 }
 
 exports.obtenerid = async (req, res) => {
     try {
-      const _id = req.params._id;
-      const genero = await Genero.findById(_id);
+
+      const id = req.params.id;
+      const genero = await Genero.findById(id);
       res.status(200).json(genero);
+
     } catch (error) {
-      res.status(500).json(error)
+      res.status(500).json({msj:"No se encontro ese id, "+error})
     }
   
   }
@@ -32,9 +35,9 @@ exports.obtenerid = async (req, res) => {
      
       await nGenero.save();
       console.log(nGenero);
-      //res.json({ msj: "Usuario registrado exitosamente", id: nGenero._id })
+      //res.json({ msj: "Usuario registrado exitosamente", id: nGenero.id })
     } catch (error) {
-      res.status(500).json({msj:"Error al registrar"+error})
+      res.status(500).json({msj:"Error al registrar,  "+error})
     }
   
   }

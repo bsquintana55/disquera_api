@@ -21,8 +21,8 @@ exports.obtener = async (req, res) => {
 
 exports.obtenerid = async (req, res) => {
     try {
-      const _id = req.params._id;
-      const cancion = await Cancion.findById(_id).populate('album',{
+      const id = req.params.id;
+      const cancion = await Cancion.findById(id).populate('album',{
 
       "_id":1,
       "nombreCancion": 1,

@@ -15,7 +15,7 @@ conexionBD();
 
 //Configuraciones
 app.set("name","disquera-api-sobi");
-app.set("port",process.env.PORT || 100);
+app.set("port",process.env.PORT || 200);
 app.set("host",process.env.HOST || 'localhost');
 
 
